@@ -1,5 +1,17 @@
 # Extensible and interoperable science through a 'Serverless' model in the context of SKA
 
+  * [Concepts to know](#concepts-to-know)
+    + [HPC](#hpc)
+    + [Cloud computing](#cloud-computing)
+    + [Virtual Machines](#virtual-machines)
+    + [Containers](#containers)
+    + [Serverless model](#serverless-model)
+  * [Training](#training)
+    + [VM installation - How to install Ubuntu in a VM](#vm-installation---how-to-install-ubuntu-in-a-vm)
+    + [Intro to Linux - Bash/Shell scripts](#intro-to-linux---bash-shell-scripts)
+    + [Introduction to Git and GitHub](#introduction-to-git-and-github)
+
+
 The volume of data obtained by astronomical instruments is increasing, and is expected to reach the exabyte scale in the coming years thanks to instruments such as the Square Kilometre Array (SKA), among others. Therefore, many of the scientific experiments in astrophysics are necessarily performed in a Big Data context. This poses a challenge for scientists and developers, as most of the data analysis and processing will not be performed on conventional equipment and will be moved to Cloud Computing, HPC or Grid environments. 
 
 A key aspect for scientific breakthroughs will be the implementation of software and tools used in science for data processing. In this project we will study a solution based on a Serverless model. This model involves working with a catalogue of Functions-as-a-Service where the software is executed through APIs, guaranteeing reproducibility and scalability. The user can use these APIs from Jupyter Notebooks or pipelines, without having to deal with the computing infrastructure.
