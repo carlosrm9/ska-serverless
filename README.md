@@ -91,6 +91,13 @@ Intro to git: https://github.com/spsrc/reproducibility-course/blob/main/session1
 
 Git and GitHub: https://github.com/spsrc/reproducibility-course/blob/main/session1/T1.5_github_repositories/README.md and https://github.com/spsrc/reproducibility-course/blob/main/session2/T2.2_software/README.md
 
+## Exercises for week 1
+
+1. Create VM with Ubuntu (and VirtualBox)
+2. Once created: access to the VM from Windows with SWL extensions (ssh, scp, .... commands), in this case ssh root@localhost ...
+3. Review Linux workshops and tutorials and play with them.
+4. Manage this repository (add content) and create a new one to test things.
+
 
 
 
