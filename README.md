@@ -93,6 +93,7 @@ Git and GitHub: https://github.com/spsrc/reproducibility-course/blob/main/sessio
 
 ## Exercises for week 1
 
+0. Understand concepts with a Q&A session
 1. Create VM with Ubuntu (and VirtualBox)
 2. Once created: access to the VM from Windows with SWL extensions (ssh, scp, .... commands), in this case ssh root@localhost ...
 3. Review Linux workshops and tutorials and play with them.
