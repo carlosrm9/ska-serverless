@@ -98,6 +98,7 @@ Git and GitHub: https://github.com/spsrc/reproducibility-course/blob/main/sessio
 2. Once created: access to the VM from Windows with SWL extensions (ssh, scp, .... commands), in this case ssh root@localhost ...
 3. Review Linux workshops and tutorials and play with them.
 4. Manage this repository (add content) and create a new one to test things.
+- I have created a repository to learn and test how GitHub and Git works: https://github.com/carlosrm9/repositorio-prueba 
 
 
 
