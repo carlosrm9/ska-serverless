@@ -88,6 +88,8 @@ Available versions (for GPU, special for architectures, etc.) The lastest versio
 
 Example of usage.
 
+https://docs.astropy.org/en/stable/convolution/index.html contains multiples examples of usage
+
 
 
 
