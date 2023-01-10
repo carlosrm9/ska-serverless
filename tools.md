@@ -66,18 +66,25 @@ Available versions (for GPU, special for architectures, etc.)
 Example of usage.
 
 ### ASTROPY
+I have searched through the documentation of this package and the only thing that I have found that may be useful in our field is astropy.convolution.convolve. 
+#### astropy.convolution.convolve
+Description/Objectives: I convolves an array (image) with a kernel (I am not sure about the meaning of kernel in this context).
 
-Description/Objectives.
+Parameterization (and complexity). The parameters are:
++ boundary (It determines how to handle boundaries, i.e, fill to a fixed value (fill_value) , periodic, etc.)
++ fill_value 
++ normalize_kernel (Whether normalized or not the kernel)
++ nan_treatment (How to treat corrupted data from the image: interpolation, fill_value,etc.)
++ preserve_nan (Preserve or not corrupted pixels after convolution)
++ mask (A mask array)
 
-Parameterization (and complexity).
+Parallelizable.I have not found anything on this matter.
 
-Parallelizable.
+Supports file splits.I have not found anything on this matter.
 
-Supports file splits.
+How is the data entry and types of data entry. Data entry is an array, that can be an image.fits that previosly is opened with astropy.io.open, and a kernel, that may be one of the existing in the package, or a custom creation (with another function of the package, customkernel).
 
-How is the data entry and types of data entry.
-
-Available versions (for GPU, special for architectures, etc.)
+Available versions (for GPU, special for architectures, etc.) The lastest version of the Astropy package are 5.2.1, 5.2, 5.1.2, and 5.1. I have not found anything about different versions for GPU or special architectures.
 
 Example of usage.
 
