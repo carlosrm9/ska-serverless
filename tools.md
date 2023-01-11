@@ -259,6 +259,33 @@ Example of usage.
 ```
 split(vis='ngc5921.demo.ms', outputvis='ngc5921.demo.src.split.ms', field='N5921*', spw='', datacolumn='corrected')
 ```
+#### uvcontsub
+
+Description/Objectives. Continuum fitting and subtraction in the uv plane.
+
+Parameterization (and complexity).
++ vis (Continuum fitting and subtraction in the uv plane)
++ field (Select field(s) using id(s) or name(s))
++ fitspw (Spectral window:channel selection for fitting the continuum)
++ spw (Spectral window selection for output)
++ solint (Continuum fit timescale)
++ fitorder (Polynomial order for the fits)
++ want_cont (Create vis + ”.cont” to hold the continuum estimate)
+
+Parallelizable.-
+
+Supports file splits.-
+
+How is the data entry and types of data entry. Visibility
+
+Available versions (for GPU, special for architectures, etc.)-
+
+
+Example of usage. The output will be ngc5921.demo.ms.contsub for the continuum-subtracted spectral line data and ngc5921.demo.ms.cont for the average of the continuum
+```
+uvcontsub(vis='ngc5921.demo.src.split.ms', field='N5921*', fitspw='0:4~6;50~59', spw='0', solint=0.0, fitorder=0, 
+        want_cont=True)
+```
 
 
 
