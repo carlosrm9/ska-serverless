@@ -123,6 +123,52 @@ bandpass(vis='ngc5921.demo.ms', caltable='ngc5921.demo.bcal', field='0', selectd
          bandtype='B', solint='inf', combine='scan', refant='15')
 ```
 
+#### tclean
+Description/Objectives. Form images from visibilities and reconstruct a sky model.
+
+Parameterization (and complexity). Great number or parameters. They are found at https://casa.nrao.edu/docs/taskref/tclean-task.html. Some of them are:
++ vis (Visibilities ready to be imaged)
++ imagename (name of the resulting image)
++ field (Select fields to image or mosaic)
++ datacolumn (Data column to image: data or corrected)
++ specmode (Spectral definition mode:mfs,cube,cubedata. More info about this at https://casa.nrao.edu/docs/taskref/tclean-task.html)
++ nchan (Number of channels in the output image)
++ start (First channel of output cube images specified by data channel number)
++ width (Channel width of output cube images specified by data channel number
++ spw (Select spectral window/channels)
++ deconvolver (Name of minor cycle algorithm: hogbom,clark,multiscale,mtmfs,mem,clarkstokes)
++ gridder (Gridding options: standard, wproject, widefield, mosaic, awproject)
++ niter (Maximum number of iterations)
++ gain (Fraction of the source flux to subtract out of the residual image for the CLEAN algorithm and its variants)
++ threshold (Stopping threshold (number in units of Jy, or string)
++ imsize (Number of pixels of the final image)
++ cell (Cell size of the final image)
++ weighting (Weighting scheme: natural,uniform,briggs,superuniform,radial)
++ robust (Robustness parameter for Briggs weighting)
++ mask (The name of a CASA image or region file or region string that specifies a 1/0 mask to be used for deconvolution)
++ interactive (Modify masks and parameters at runtime)
++ pblimit (PB gain level at which to cut off normalizations. I don't really get what is this)
+
+Parallelizable.-
+
+Supports file splits.-
+
+How is the data entry and types of data entry. Visibilities calibrated and ready to be imaged.
+
+Available versions (for GPU, special for architectures, etc.)-
+
+
+Example of usage.
+
+```
+tclean(vis='ngc5921.demo.src.split.ms.contsub', imagename='ngc5921.demo.tclean', 
+       field='2', datacolumn='data', specmode='cube', nchan=46, start=5, width=1, 
+       spw='', deconvolver='hogbom', gridder='standard', niter=6000, gain=0.1, 
+       threshold='8.0mJy', imsize=[256,256], cell=['15.0arcsec','15.0arcsec'], 
+       weighting='briggs', robust=0.5,  mask = 'box[[108pix,108pix],[148pix,148pix]]', 
+       interactive=False, pblimit=-0.2)
+ ```
+
 
 
 ### ASTROPY
