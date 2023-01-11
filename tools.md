@@ -92,7 +92,32 @@ Example of usage. How to flag only the autocorrelations:
 ```
 flagdata(vis="ngc5921.demo.ms", autocorr=True)
 ```
-### In a usual workflow, there are other functions used between the previous ones and the next ones. I think they are not of interest because they only sets what I suppose are "small things", which can be performed locally. 
+
+#### setjy 
+
+Description/Objectives. Fills the model column with the visibilities of a calibrator
+
+Parameterization (and complexity). 
++ vis (Name of input visibility file)
++ field (Field name)
++ model (File location for field model)
+There are others parameters.
+
+Parallelizable.-
+
+Supports file splits.-
+
+How is the data entry and types of data entry. Data entry is visibility (and field of calibration source)
+
+Available versions (for GPU, special for architectures, etc.)-
+
+
+Example of usage.
+
+```
+# 1331+305 = 3C286 is our primary calibrator.
+setjy(vis='ngc5921.demo.ms', field='1331+305*', model='3C286_L.im')
+```
 
 #### bandpass
 
@@ -122,6 +147,121 @@ Example of usage.
 bandpass(vis='ngc5921.demo.ms', caltable='ngc5921.demo.bcal', field='0', selectdata=False, 
          bandtype='B', solint='inf', combine='scan', refant='15')
 ```
+
+#### gaincal
+
+Description/Objectives. Determine temporal gains from calibrator observations
+
+Parameterization (and complexity). 
++ vis (Name of input visibility file)
++ caltable (Name of output gain calibration table)
++ gaintable (Gain calibration table(s) to apply on the fly)
++ interp (Temporal interpolation for each gaintable)
++ field (Select field using field id(s) or field name(s), this field contains the data of the strong source)
++ spw (Select spectral window/channels)
++ gaintype (Type of gain solution: G,T,GSPLINE,K,KCROSS)
++ solint (Solution interval in time)
++ calmode (Type of solution: ’ap’, ’p’, ’a’)
++ refant (Reference antenna name(s))
+
+Parallelizable.-
+
+Supports file splits.-
+
+How is the data entry and types of data entry. Data entry is visibility.
+
+Available versions (for GPU, special for architectures, etc.)-
+
+
+Example of usage.
+```
+gaincal(vis='ngc5921.demo.ms', caltable='ngc5921.demo.gcal', gaintable=['ngc5921.demo.bcal'], interp=['nearest'], field='0,1', 
+        spw='0:6~56', gaintype='G', solint='inf', calmode='ap', refant='15')
+```
+
+#### fluxscale
+
+Description/Objectives. Bootstrap the flux density scale from standard calibrators
+
+Parameterization (and complexity).
++ vis (Name of input visibility file)
++ fluxtable (Name of output, flux-scaled calibration table)
++ caltable (Name of input calibration table)
++ reference (Reference field name)
++ transfer (Transfer field name)
+
+Parallelizable.-
+
+Supports file splits.-
+
+How is the data entry and types of data entry. Data entries are visibilities and calibration table.
+
+Available versions (for GPU, special for architectures, etc.)-
+
+
+Example of usage.
+
+```
+
+fluxscale(vis='ngc5921.demo.ms', fluxtable='ngc5921.demo.fluxscale', caltable='ngc5921.demo.gcal', reference='1331*', transfer='1445*')
+
+```
+
+#### applycal
+
+Description/Objectives. Apply calibrations solutions(s) to data
+
+Parameterization (and complexity).
++ vis (Name of input visibility file)
++ field (Select field using field id(s) or field name(s) for the calibration to be applied on)
++ gaintable (Gain calibration table(s) to apply on the fly)
++ gainfield (Select a subset of calibrators from gaintable)
++ interp (Interp type in time[freq], per gaintable)
++ spwmap (Spectral windows combinations to form for gaintables)
++ selectdata (Not really sure about this parameter)
+
+Parallelizable.-
+
+Supports file splits.-
+
+How is the data entry and types of data entry. Visibilities and gaintable/gainfield.
+
+Available versions (for GPU, special for architectures, etc.)-
+
+
+Example of usage. 
+
+```
+applycal(vis='ngc5921.demo.ms', field='1,2', gaintable=['ngc5921.demo.fluxscale','ngc5921.demo.bcal'], 
+         gainfield=['1','*'], interp=['linear','nearest'], spwmap=[], selectdata=False)
+```
+
+#### split 
+Description/Objectives. Create a visibility subset from an existing visibility set
+
+Parameterization (and complexity).
++ vis (Name of input Measurement set)
++ outputvis (Name of output Measurement set)
++ field (Select field using ID(s) or name(s))
++ spw (Select spectral window/channels)
++ datacolumn (Which data column(s) to process)
+
+Parallelizable.-
+
+Supports file splits.-
+
+How is the data entry and types of data entry. Visibility
+
+Available versions (for GPU, special for architectures, etc.)-
+
+
+Example of usage.
+```
+split(vis='ngc5921.demo.ms', outputvis='ngc5921.demo.src.split.ms', field='N5921*', spw='', datacolumn='corrected')
+```
+
+
+
 
 #### tclean
 Description/Objectives. Form images from visibilities and reconstruct a sky model.
