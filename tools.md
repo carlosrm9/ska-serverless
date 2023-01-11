@@ -50,20 +50,80 @@ Example of usage.
 
 
 ### CASA
+#### casatasks.importuvfits
 
-Description/Objectives.
+Description/Objectives: It imports the multisource UVFITS data to a CASA measurement set
 
-Parameterization (and complexity).
+Parameterization (and complexity):
++ fitsfile Name of input file
++ vis Name of output visibility file
++ async (True or False. If true run in the background, prompt is freed).
 
-Parallelizable.
+Parallelizable: -
 
-Supports file splits.
+Supports file splits: -
 
-How is the data entry and types of data entry.
+How is the data entry and types of data entry: Data entry image.fits
 
-Available versions (for GPU, special for architectures, etc.)
+Available versions (for GPU, special for architectures, etc.): -
 
 Example of usage.
+```
+importuvfits(fitsfile=’NGC5921.fits’,vis=’ngc5921.ms’)
+```
+#### flagdata
+Description/Objectives. It flags the visibilities to reduce noise.
+
+Parameterization (and complexity):
++ vis (Input visibilities to be flagged)
++ autocorr (True or False. If True flags only autocorrelations).
++ There are other parameters (74 in total). They can be found at https://casa.nrao.edu/docs/taskref/flagdata-task.html
+
+Parallelizable: -
+
+Supports file splits: -
+
+How is the data entry and types of data entry: Data entry are visibilities, obtained from fits with the previous function. 
+
+Available versions (for GPU, special for architectures, etc.): -
+
+
+Example of usage. How to flag only the autocorrelations:
+```
+flagdata(vis="ngc5921.demo.ms", autocorr=True)
+```
+### In a usual workflow, there are other functions used between the previous ones and the next ones. I think they are not of interest because they only sets what I suppose are "small things", which can be performed locally. 
+
+#### bandpass
+
+Description/Objectives. Calculates a bandpass calibration solution. It needs observations of strong known sources.
+
+Parameterization (and complexity):
++ vis (Name of input visibility file)
++ caltable (Name of output gain calibration table)
++ field (Select field using field id(s) or field name(s), this field contains the data of the strong source)
++ selectada (True or False. Other data selection parameters)
++ bandtype (Type of bandpass solution)
++ solint (Solution interval in time)
++ combine (Data axes which to combine for solve)
++ refant (Reference antenna name(s))
+There are a lot of other parameters.
+Parallelizable. -
+
+Supports file splits. -
+
+How is the data entry and types of data entry. Data entry is visibility
+
+Available versions (for GPU, special for architectures, etc.) -
+
+
+Example of usage.
+```
+bandpass(vis='ngc5921.demo.ms', caltable='ngc5921.demo.bcal', field='0', selectdata=False, 
+         bandtype='B', solint='inf', combine='scan', refant='15')
+```
+
+
 
 ### ASTROPY
 I have searched through the documentation of this package and the only thing that I have found that may be useful in our field is astropy.convolution.convolve. 
