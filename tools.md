@@ -361,6 +361,18 @@ tclean(vis='/script/obs.calib.ms', imagename='/script/obs.dirty',
 tclean(vis='/script/obs.calib.ms', imagename='obs.Reg.Clean.niter1K', 
       imsize=1280, cell='8arcsec', pblimit=-0.01, niter=1000, savemodel='modelcolumn')
 ```
+For Casa 6.4.4, use:
+``` 
+docker run -it -v host/path/to/files:/script amigahub/casa:6.4.4 /casa/casa-6.4.4.31-py3.6/bin/python3 /script/script.py
+```
+For Casa 6.4.0, use:
+``` 
+docker run -it -v host/path/to/files:/script amigahub/casa:6.4.4 /casa/casa-6.4.0-16/bin/python3 /script/script.py
+```For Casa 6.5.2, use:
+``` 
+docker run -it -v host/path/to/files:/script amigahub/casa:6.4.4 /casa/casa-6.5.2-26-py3.6/bin/python3 /script/script.py
+```
+
 
 
 ### ASTROPY
