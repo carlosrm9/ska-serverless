@@ -335,7 +335,32 @@ tclean(vis='ngc5921.demo.src.split.ms.contsub', imagename='ngc5921.demo.tclean',
        weighting='briggs', robust=0.5,  mask = 'box[[108pix,108pix],[148pix,148pix]]', 
        interactive=False, pblimit=-0.2)
  ```
+ 
+ ##### Casa Docker Container:
+ To install the image:
+ ```
+ docker pull amigahub/casa:6.X.X
+ ```
+ where 6.X.X is the desired version.
 
+Here we have an example of how to run this container (Casa 6.5.0) to clean an already calibrated measurement (obs.calib.ms).
+
+``` 
+docker run -it -v host/path/to/files:/script amigahub/casa:6.5.0 /casa/casa-6.5.0.15-py3.6/bin/python3 /script/script.py
+```
+host/path/to/files must be the path to both obs.calib.ms and script.py. script.py must contain the python script wanted to be run. In this case, we will generate two images, the one before cleaning (obs.dirty.image) and the one after doing 1000 iterations of tclean (obs.Reg.Clean.niter1k.image) along the rest of output data that tclean gives us after running. script.py should be 
+```
+import casatasks as ct
+
+ct.rmtables('<imagename>.*')
+
+tclean(vis='/script/obs.calib.ms', imagename='/script/obs.dirty', 
+      imsize=1280, cell='8arcsec', pblimit=-0.01, niter=0,  
+      stokes='I', savemodel='modelcolumn')
+
+tclean(vis='/script/obs.calib.ms', imagename='obs.Reg.Clean.niter1K', 
+      imsize=1280, cell='8arcsec', pblimit=-0.01, niter=1000, savemodel='modelcolumn')
+```
 
 
 ### ASTROPY
