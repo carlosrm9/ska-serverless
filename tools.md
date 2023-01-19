@@ -369,7 +369,8 @@ docker run -it -v host/path/to/files:/script amigahub/casa:6.4.4 /casa/casa-6.4.
 For Casa 6.4.0, use:
 ``` 
 docker run -it -v host/path/to/files:/script amigahub/casa:6.4.4 /casa/casa-6.4.0-16/bin/python3 /script/script.py
-```For Casa 6.5.2, use:
+```
+For Casa 6.5.2, use:
 ``` 
 docker run -it -v host/path/to/files:/script amigahub/casa:6.4.4 /casa/casa-6.5.2-26-py3.6/bin/python3 /script/script.py
 ```
