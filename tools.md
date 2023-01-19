@@ -31,6 +31,22 @@ Example of usage: To clean an observation to a 3 sigma noise level,
 wsclean -auto-threshold 3 -size 2048 2048 -scale 1amin \
   -mgain 0.8 -niter 50000 observation.ms
 ```
+##### WSCLEAN Docker Container:
+
+ To install the image:
+ ```
+ docker pull stimela/wsclean:1.6.3
+ ```
+This will install a Docker container with wsclean version 2.9.0
+
+Here we have an example of how to run this container to clean an already calibrated measurement (obs.calib.ms).
+```
+docker run -it -v path/to/obs.calib.ms:/data/ stimela/wsclean:1.6.3wsclean -auto-threshold 3 -size 1280 1280 -scale 8asec -mgain 0.8 -niter 1000 /data/obs.ms
+```
+This will perform a simple cleaning to a 3 sigma noise level with 1000 iterations. 
+
+
+
 
 ### TSCLEAN 
 
