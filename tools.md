@@ -47,26 +47,6 @@ docker run -it -v path/to/obs.calib.ms:/data/ stimela/wsclean:1.6.3 wsclean -aut
 This will perform a simple cleaning to a 3 sigma noise level with 1000 iterations. 
 
 
-
-
-### TSCLEAN 
-
-Description/Objectives. I have not found any function called TSClean related to Radioastronomy
-
-Parameterization (and complexity).
-
-Parallelizable.
-
-Supports file splits.
-
-How is the data entry and types of data entry.
-
-Available versions (for GPU, special for architectures, etc.)
-
-
-Example of usage.
-
-
 ### CASA
 #### casatasks.importuvfits
 
@@ -220,9 +200,7 @@ Available versions (for GPU, special for architectures, etc.)-
 Example of usage.
 
 ```
-
 fluxscale(vis='ngc5921.demo.ms', fluxtable='ngc5921.demo.fluxscale', caltable='ngc5921.demo.gcal', reference='1331*', transfer='1445*')
-
 ```
 
 #### applycal
@@ -306,8 +284,6 @@ uvcontsub(vis='ngc5921.demo.src.split.ms', field='N5921*', fitspw='0:4~6;50~59',
 ```
 
 
-
-
 #### tclean
 Description/Objectives. Form images from visibilities and reconstruct a sky model.
 
@@ -355,7 +331,8 @@ tclean(vis='ngc5921.demo.src.split.ms.contsub', imagename='ngc5921.demo.tclean',
  ```
  
  ##### Casa Docker Container:
- To install the image:
+
+To install the image:
  ```
  docker pull amigahub/casa:6.X.X
  ```
@@ -366,7 +343,10 @@ Here we have an example of how to run this container (Casa 6.5.0) to clean an al
 ``` 
 docker run -it -v host/path/to/files:/script amigahub/casa:6.5.0 /casa/casa-6.5.0.15-py3.6/bin/python3 /script/script.py
 ```
-host/path/to/files must be the path to both obs.calib.ms and script.py. script.py must contain the python script wanted to be run. In this case, we will generate two images, the one before cleaning (obs.dirty.image) and the one after doing 1000 iterations of tclean (obs.Reg.Clean.niter1k.image) along the rest of output data that tclean gives us after running. script.py should be 
+
+`host/path/to/files` must be the path to both `obs.calib.ms` and `script.py`. script.py must contain the python script wanted to be run. In this case, we will generate two images, the one before cleaning (obs.dirty.image) and the one after doing 1000 iterations of tclean (obs.Reg.Clean.niter1k.image) along the rest of output data that tclean gives us after running. script.py should be 
+
+
 ```
 import casatasks as ct
 
@@ -379,15 +359,21 @@ tclean(vis='/script/obs.calib.ms', imagename='/script/obs.dirty',
 tclean(vis='/script/obs.calib.ms', imagename='obs.Reg.Clean.niter1K', 
       imsize=1280, cell='8arcsec', pblimit=-0.01, niter=1000, savemodel='modelcolumn')
 ```
+
 For Casa 6.4.4, use:
+
 ``` 
 docker run -it -v host/path/to/files:/script amigahub/casa:6.4.4 /casa/casa-6.4.4.31-py3.6/bin/python3 /script/script.py
 ```
+
 For Casa 6.4.0, use:
+
 ``` 
 docker run -it -v host/path/to/files:/script amigahub/casa:6.4.4 /casa/casa-6.4.0-16/bin/python3 /script/script.py
 ```
+
 For Casa 6.5.2, use:
+
 ``` 
 docker run -it -v host/path/to/files:/script amigahub/casa:6.4.4 /casa/casa-6.5.2-26-py3.6/bin/python3 /script/script.py
 ```
@@ -396,6 +382,7 @@ docker run -it -v host/path/to/files:/script amigahub/casa:6.4.4 /casa/casa-6.5.
 
 ### ASTROPY
 I have searched through the documentation of this package and the only thing that I have found that may be useful in our field is astropy.convolution.convolve. 
+
 #### astropy.convolution.convolve
 Description/Objectives: I convolves an array (image) with a kernel (I am not sure about the meaning of kernel in this context).
 
