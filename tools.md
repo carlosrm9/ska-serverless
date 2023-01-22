@@ -39,12 +39,12 @@ wsclean -auto-threshold 3 -size 2048 2048 -scale 1amin \
  ```
 This will install a Docker container with wsclean version 2.9.0
 
-Here we have an example of how to run this container to clean an already calibrated measurement (obs.calib.ms).
+Here we have an example of how to run this container to clean an already calibrated measurement (obs.calib.ms) in MS (measurement set) format.
 ```
 docker run -it -v path/to/obs.calib.ms:/data/ stimela/wsclean:1.6.3 wsclean -auto-threshold 3 \
 -size 1280 1280 -scale 8asec -mgain 0.8 -niter 1000 /data/obs.ms
 ```
-This will perform a simple cleaning to a 3 sigma noise level with 1000 iterations. 
+This will perform a simple cleaning to a 3 sigma noise level with 1000 iterations. The result of running this function will be serveral files: wsclean-image.fits, wsclean-dirty.fits, wsclean-model.fits, wsclean-psf.fits and wsclean-residual.fits, all of them FITS. The cleaned image file is wsclean-image.fits.
 
 
 ### CASA
@@ -329,7 +329,6 @@ tclean(vis='ngc5921.demo.src.split.ms.contsub', imagename='ngc5921.demo.tclean',
        weighting='briggs', robust=0.5,  mask = 'box[[108pix,108pix],[148pix,148pix]]', 
        interactive=False, pblimit=-0.2)
  ```
- 
  ##### Casa Docker Container:
 
 To install the image:
@@ -338,7 +337,7 @@ To install the image:
  ```
  where 6.X.X is the desired version.
 
-Here we have an example of how to run this container (Casa 6.5.0) to clean an already calibrated measurement (obs.calib.ms).
+Here we have an example of how to run this container (Casa 6.5.0) to clean an already calibrated measurement (obs.calib.ms) in MS format.
 
 ``` 
 docker run -it -v host/path/to/files:/script amigahub/casa:6.5.0 /casa/casa-6.5.0.15-py3.6/bin/python3 /script/script.py
@@ -359,6 +358,7 @@ tclean(vis='/script/obs.calib.ms', imagename='/script/obs.dirty',
 tclean(vis='/script/obs.calib.ms', imagename='obs.Reg.Clean.niter1K', 
       imsize=1280, cell='8arcsec', pblimit=-0.01, niter=1000, savemodel='modelcolumn')
 ```
+This will return several files, corresponding to both dirty and clean image. The clean image file will be obs.Reg.Clean.niter1K.image, in a specific format CASA has for images. To transform it to other format, such as FITS, use exportfits('obs.Reg.Clean.niter1K.image','obs.Reg.Clean.niter1K.fits') from casatasks package.
 
 For Casa 6.4.4, use:
 
