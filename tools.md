@@ -358,7 +358,20 @@ tclean(vis='/script/obs.calib.ms', imagename='/script/obs.dirty',
 tclean(vis='/script/obs.calib.ms', imagename='obs.Reg.Clean.niter1K', 
       imsize=1280, cell='8arcsec', pblimit=-0.01, niter=1000, savemodel='modelcolumn')
 ```
-This will return several files, corresponding to both dirty and clean image. The clean image file will be obs.Reg.Clean.niter1K.image, in a specific format CASA has for images. To transform it to other format, such as FITS, use exportfits('obs.Reg.Clean.niter1K.image','obs.Reg.Clean.niter1K.fits') from casatasks package.
+This will return several files, corresponding to both dirty and clean image. The clean image file will be obs.Reg.Clean.niter1K.image, in a specific format CASA has for images. To transform it to other format, such as FITS, we can use exportfits from casatasks package. If we want the output files just in FITS, add to script.py the following code:
+```
+import os
+
+path = '.'
+dirties = [dirty for dirty in os.listdir(path) if dirty.startswith('SNR_G55_10s.dirty') ]
+cleans = [clean for clean in os.listdir(path) if clean.startswith('SNR_G55_10s.Reg.') ]
+
+for dirty in dirties:
+        ct.exportfits(imagename=dirty,fitsimage=dirty+'.fits',overwrite=True)
+
+for clean in cleans:
+        ct.exportfits(imagename=clean,fitsimage=clean+'.fits',overwrite=True)
+```
 
 For Casa 6.4.4, use:
 
