@@ -1,5 +1,5 @@
 #### Calibration scripts
-This folder contains the scripts needed to perform a basic calibration and cleaning of an observation using CASA. It is particularized to NGC5921.fits, but it can be changed.
+This folder contains the scripts needed to perform a basic calibration and cleaning of an observation using CASA. It is particularized to NGC5921.fits (not uploaded for its size), but it can be changed.
 
 To execute these scripts using Docker, use:
 
