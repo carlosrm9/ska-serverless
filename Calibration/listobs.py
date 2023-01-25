@@ -1,4 +1,4 @@
 import casatasks as ct
 
-ct.listobs(vis='ngc5921.demo.ms',listfile='obslist.txt', verbose=False, overwrite=True)
+ct.listobs(vis='/data/ngc5921.demo.ms',listfile='/data/obslist.txt', verbose=False, overwrite=True)
 
