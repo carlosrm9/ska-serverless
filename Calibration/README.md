@@ -6,6 +6,7 @@ To execute these scripts using Docker, use:
 ```
 docker run -it -v host/path/to/files:/data/ amigahub/casa:6.5.0 /casa/casa-6.5.0.15-py3.6/bin/python3 /data/<scriptname>.py
 ```
+These scripts have been proved to work in CASA 6.5.0 only. 
 
 The order in which the different scripts must be run is:
 + importfits.py
