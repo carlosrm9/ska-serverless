@@ -4,7 +4,7 @@ This folder contains the scripts needed to perform a basic calibration and clean
 To execute these scripts using Docker, use:
 
 ```
-docker run -it -v host/path/to/files:/script amigahub/casa:6.5.0 /casa/casa-6.5.0.15-py3.6/bin/python3 /script/script.py
+docker run -it -v host/path/to/files:/data/ amigahub/casa:6.5.0 /casa/casa-6.5.0.15-py3.6/bin/python3 /data/<scriptname>.py
 ```
 
 The order in which the different scripts must be run is:
