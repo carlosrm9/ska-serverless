@@ -18,4 +18,5 @@ The order in which the different scripts must be run is:
 + applycal.py
 + uvcontsub.py
 + tclean.py
+
 Information about the functions used in these scripts can be found in tools.md. Parameters used in those functions can be altered depending of the particular needs of the observations.
