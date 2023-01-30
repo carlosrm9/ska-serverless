@@ -15,3 +15,7 @@ To run the containers, run:
 docker run -it -v local/path/to/data:/data/ nameofcontainer
 ```
 This will run the desired containerized function and give the output in 'local/path/to/data/'.
+
+## Warning
+
+Calibration and cleaning Casa 6.5.0 functions are particularized to a file named ngc5921.demo.ms. Name if input and output files can be modified as needed.
