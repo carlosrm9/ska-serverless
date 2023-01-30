@@ -14,7 +14,7 @@ To run the containers, run:
 ```
 docker run -it -v local/path/to/data:/data/ nameofcontainer
 ```
-This will run the desired containerized function and give the output in 'local/path/to/data/'.
+This will run the desired containerized function and give the output in `local/path/to/data/`.
 
 ## Warning
 
