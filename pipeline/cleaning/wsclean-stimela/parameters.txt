@@ -1,0 +1,7 @@
+imager_params = {
+    "msname"	:	MSNAME,
+    "npix"	: 	2048,
+    "cellsize"	:	2, # in arcseconds
+    "column"	:	"CORRECTED_DATA",
+    "clean_iterations"	:	3000,
+ }
