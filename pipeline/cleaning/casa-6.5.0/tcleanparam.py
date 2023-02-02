@@ -1,7 +1,7 @@
 import casatasks as ct
 import os
 
-with open("parameters2.txt", "r") as file:
+with open("parameters.txt", "r") as file:
     parameters = file.read()
 
 params = eval(parameters)
