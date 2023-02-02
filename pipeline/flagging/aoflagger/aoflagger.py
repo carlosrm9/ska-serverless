@@ -4,9 +4,9 @@ import os
 INPUT = 'input/' # Input directory  (It must exit)
 OUTPUT = 'output/' # Output directory
 MSDIR = 'msdir/' # Measurement Set directory
-PREFIX = 'stimela-example' # Prefix for output images
+PREFIX = 'Obs' # Prefix for output images
 
-MSNAME = 'meerkat_simulation_example.ms' # Measurent Set Name
+MSNAME = 'Obs.ms' # Measurent Set Name
 
 pipeline = stimela.Recipe('Flagging with Aoflagger',
 			  ms_dir=MSDIR,

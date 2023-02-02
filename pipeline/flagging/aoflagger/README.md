@@ -28,7 +28,7 @@ stimela pull --cab-base cab/autoflagger
 To check the different possible parameters of Aoflagger, run
 
 ```
-stimela cabs -i <cab name>
+stimela cabs -i autoflagger
 ```
 
 To run Aoflagger, you will need to specify its parameters in parameters.txt. After that, run
