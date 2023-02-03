@@ -1,0 +1,1 @@
+-auto-threshold 3 -size 1280 1280 -scale 8asec -mgain 0.8 -niter 1000 /data/obs.ms

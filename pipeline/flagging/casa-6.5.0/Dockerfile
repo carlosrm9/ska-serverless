@@ -21,11 +21,11 @@ WORKDIR /casa/
 RUN wget https://alma-dl.mtk.nao.ac.jp/ftp/casa/distro/casa/release/rhel/casa-6.5.0-15-py3.8.tar.xz 
 RUN tar -xf casa-6.5.0-15-py3.8.tar.xz
 RUN mkdir /script/
-COPY flagging.py /script/
+COPY flaggingparam.py /script/
 RUN mkdir /data/
 WORKDIR /data/
 ENV PATH="/casa/casa-6.5.0-15-py3.8/bin/:$PATH"
-CMD ["python3","/script/flagging.py"]
+CMD ["python3","/script/flaggingparam.py"]
 
 
 # /casa/casa-6.4.4-31-py3.8/bin/python 
