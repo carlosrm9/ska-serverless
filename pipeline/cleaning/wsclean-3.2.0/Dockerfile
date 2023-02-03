@@ -38,11 +38,13 @@ RUN cd /external && git clone https://git.astron.nl/RD/idg.git && \
   mkdir /external/idg/build && cd /external/idg/build && cmake ../ && make install -j`nproc`
 
 # WSClean
-ADD . /src
+
 WORKDIR /src
+RUN git clone <wsclean> 
 
 # Point to the casacore where Dysco is installed
 ENV LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/local/lib"
+WORKDIR /src/<wsclean>/
 
 RUN \
   mkdir /build && \
@@ -51,5 +53,6 @@ RUN \
   make -j`nproc` && \
   make install && \
   wsclean --version
+  
 RUN mkdir /data/
 WORKDIR /data/  
