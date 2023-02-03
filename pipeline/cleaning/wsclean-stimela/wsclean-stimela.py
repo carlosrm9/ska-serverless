@@ -14,9 +14,11 @@ pipeline = stimela.Recipe('Cleaning with wsclean',
 			  outdir=OUTPUT,
 			  log_dir=os.path.join(OUTPUT,'logs'),
 			  )
+# Change to parameter.json and read parameters from dictionary
 with open("parameters.txt", "r") as f:
     parameters = f.read()
 
+# Change it to json dict.
 params = eval(parameters)
 
 pipeline.add("cab/wsclean",	# this is the full name of the executor image
