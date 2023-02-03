@@ -1,0 +1,14 @@
+  {
+11                "Data-MS": ["3C147.MS/SUBMSS/D147-LO-NOIFS-NOPOL-4M5S.MS"],
+12                "Output-Name": "testimg",
+13                "Image-NPix": 2048,
+14                "Image-Cell": 2,
+15                "Cache-Reset": True,
+16                "Freq-NBand": 3,
+17                "Weight-ColName": "WEIGHT",
+18                "Beam-Model": "FITS",
+19                "Beam-FITSFile": "'beams/JVLA-L-centred_$(corr)_$(reim).fits'",
+20                "Data-ChunkHours": 0.5,
+21                "Data-Sort": True
+22            }
+
