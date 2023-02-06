@@ -1,10 +1,11 @@
+import json
 import casatasks as ct
 import casaplotms as cplot
 
-with open("parameters.txt", "r") as file:
-    parameters = file.read()
+with open("parameters.json", "r") as file:
+    param_json = file.read()
 
-params = eval(parameters)
+params = json.loads(param_json)
 
 ct.flagdata(**params)
 
