@@ -1,9 +1,13 @@
+import sys
+import json
 import casatasks as ct
 
-with open("parameters.txt", "r") as file:
-    parameters = file.read()
+parameters=sys.argv[1]
 
-params = eval(parameters)
+with open(parameters, "r") as file:
+    param_json = file.read()
 
-ct.setjy(vis='/data/ngc5921.demo.ms',field='1331+305*', model='3C286_L.im')
+params = json.loads(param_json)
+
+ct.setjy(**params)
 
