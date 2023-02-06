@@ -25,6 +25,6 @@ COPY split.py /script/
 RUN mkdir /data/
 WORKDIR /data/
 ENV PATH="/casa/casa-6.5.0-15-py3.8/bin/:$PATH"
-CMD ["python3","/script/split.py"] 
+ENTRYPOINT ["python3","/script/split.py"] 
 
  
