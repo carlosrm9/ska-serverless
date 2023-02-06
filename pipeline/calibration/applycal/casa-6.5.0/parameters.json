@@ -1,0 +1,9 @@
+{"vis" : "/data/ngc5921.demo.ms",
+ "field" : "1,2",
+ "gaintable" : ["/data/ngc5921.demo.fluxscale","/data/ngc5921.demo.bcal"],
+ "gainfield" : ["1","*"], 
+ "interp" : ["linear","nearest"],
+ "spwmap" : [],
+ "selectdata" : false
+}
+
