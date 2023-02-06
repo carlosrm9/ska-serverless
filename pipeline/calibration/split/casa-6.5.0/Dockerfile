@@ -21,17 +21,10 @@ WORKDIR /casa/
 RUN wget https://alma-dl.mtk.nao.ac.jp/ftp/casa/distro/casa/release/rhel/casa-6.5.0-15-py3.8.tar.xz 
 RUN tar -xf casa-6.5.0-15-py3.8.tar.xz
 RUN mkdir /script/
-COPY flagdata.py /script/
+COPY split.py /script/
 RUN mkdir /data/
 WORKDIR /data/
 ENV PATH="/casa/casa-6.5.0-15-py3.8/bin/:$PATH"
-CMD ["python3","/script/flagdata.py"]
-
-
-# /casa/casa-6.4.4-31-py3.8/bin/python 
-# alias casapython /casa/casa-6.4.4-31-py3.8/bin/python 
-# alias se añaden al /etc/profile 
-
-# docker run -it -v ...... casapython a.py 
+CMD ["python3","/script/split.py"] 
 
  

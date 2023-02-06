@@ -2,13 +2,16 @@
     "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
     "@type": "SoftwareSourceCode",
     "codeRepository": "https://github.com/manuparra/ska-serverless",
-    "dateModified": "2022-10-21",
-    "name": "wsclean",
-    "version": "3.2",
+    "dateModified": "2022-05-25",
+    "name": "setjy",
+    "version": "6.5.0",
     "programmingLanguage": [
-        "C#"
+        "Python 3.8"
+    ],
+    "runtimePlatform": [
+        "Casa"
     ],
     "operatingSystem": [
-        "Ubuntu 20.04"
+        "CentOS 8"
     ]
 }

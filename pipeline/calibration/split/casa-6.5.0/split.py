@@ -5,4 +5,4 @@ with open("parameters.txt", "r") as file:
 
 params = eval(parameters)
 
-ct.fluxscale(**params)
+ct.split(**params)
