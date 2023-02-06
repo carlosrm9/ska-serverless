@@ -1,8 +1,11 @@
+import sys
 import json
 import casatasks as ct
 import casaplotms as cplot
 
-with open("parameters.json", "r") as file:
+parameters=sys.argv[1]
+
+with open(parameters, "r") as file:
     param_json = file.read()
 
 params = json.loads(param_json)
