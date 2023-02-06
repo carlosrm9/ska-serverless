@@ -1,3 +1,5 @@
+import sys
+import json
 import casatasks as ct
 
 parameters=sys.argv[1]
