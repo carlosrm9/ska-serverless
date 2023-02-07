@@ -40,16 +40,15 @@ RUN cd /external && git clone https://git.astron.nl/RD/idg.git && \
 # WSClean
 
 WORKDIR /src
-RUN git clone <wsclean> 
+RUN git clone https://gitlab.com/aroffringa/wsclean.git
 
 # Point to the casacore where Dysco is installed
 ENV LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/local/lib"
-WORKDIR /src/<wsclean>/
 
 RUN \
   mkdir /build && \
   cd /build && \
-  cmake ../src && \
+  cmake ../src/wsclean && \
   make -j`nproc` && \
   make install && \
   wsclean --version
