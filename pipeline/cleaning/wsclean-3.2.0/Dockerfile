@@ -53,10 +53,10 @@ RUN \
   make install && \
   wsclean --version
 
-# RUN mkdir /script/
-# COPY script.py /script/    
+RUN mkdir /script/
+COPY script.py /script/    
 
 RUN mkdir /data/
 WORKDIR /data/  
 
-# ENTRYPOINT ["python3","/script/script.py"]
+ENTRYPOINT ["python3","/script/script.py"]
