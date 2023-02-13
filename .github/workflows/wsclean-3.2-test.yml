@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build wsclean-3.2 Images
       run: |
-        docker build -t "wsclean-3.2.0" pipeline/cleaning/wsclean-3.2.0/Dockerfile
+        docker build -t "wsclean-3.2.0" pipeline/cleaning/wsclean-3.2.0/
     - name: Download and prepare test data
       run: |
         wget http://casa.nrao.edu/Data/EVLA/SNRG55/SNR_G55_10s.calib.tar.gz

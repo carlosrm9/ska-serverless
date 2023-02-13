@@ -60,5 +60,3 @@ RUN mkdir /data/
 WORKDIR /data/  
 
 ENTRYPOINT ["python3","/script/script.py"]
-
-
