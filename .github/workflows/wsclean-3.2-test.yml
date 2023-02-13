@@ -21,4 +21,4 @@ jobs:
         docker build -t "wsclean-3.2.0" pipeline/cleaning/wsclean-3.2.0/
     - name: Run wsclean-3.2
       run: |
-        docker run -it -v testimage/:/data/ "wsclean-3.2.0" "$(cat pipeline/cleaning/wsclean-3.2.0/parameters.json)"
+        docker run -v testimage/:/data/ "wsclean-3.2.0" "$(cat pipeline/cleaning/wsclean-3.2.0/parameters.json)"
