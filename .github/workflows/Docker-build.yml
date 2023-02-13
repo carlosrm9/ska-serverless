@@ -16,5 +16,6 @@ jobs:
             image_name=$(basename $upperdir)-$(basename $directory)
           else 
             image_name=$(basename $directory)
+          done
           docker build -t "$image_name" $directory
         done
