@@ -1,9 +1,6 @@
 name: build-docker-images
 
-on:
-  push:
-    paths:
-      - '**/Dockerfile'
+on: [push]
 
 jobs:
   build:
