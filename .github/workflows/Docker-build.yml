@@ -12,8 +12,9 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build Docker Images
       run: |
-        for file in $(find pipeline/ -name 'Dockerfile*'); do
+        for file in $(find pipeline/calibration -name 'Dockerfile*'); do
           directory=$(dirname $file)
-          image_name=$(basename $directory)
+          name-function=$(dirname $directory)
+          image_name=$(basename $name-function)-$(basename $directory)
           docker build -t "$image_name" $directory
         done
