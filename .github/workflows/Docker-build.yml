@@ -1,0 +1,17 @@
+name: build-docker-images
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build Docker Images
+      run: |
+        for file in $(find pipeline/ -name 'Dockerfile*'); do
+          directory=$(dirname $file)
+          image_name=$(basename $directory)
+          docker build -t "$image_name" $directory
+          docker push "$image_name"
+        done
