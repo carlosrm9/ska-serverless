@@ -20,4 +20,5 @@ jobs:
             fi
             image_name=$(echo "$image_name" | tr '[:upper:]' '[:lower:]')
             docker build -t "$image_name" $directory
+          fi
         done
