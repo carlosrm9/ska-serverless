@@ -14,11 +14,11 @@ jobs:
       run: |
         wget http://casa.nrao.edu/Data/EVLA/SNRG55/SNR_G55_10s.calib.tar.gz
         tar -xvf SNR_G55_10s.calib.tar.gz
-        mkdir /testimage/
-        mv  SNR_G55_10s.calib.ms /testimage/ 
+        mkdir testimage/
+        mv  SNR_G55_10s.calib.ms testimage/ 
     - name: Build wsclean-3.2 Image
       run: |
         docker build -t "wsclean-3.2.0" pipeline/cleaning/wsclean-3.2.0/
     - name: Run wsclean-3.2
       run: |
-        docker run -it -v /testimage/:/data/ "wsclean-3.2.0" "$(cat pipeline/cleaning/wsclean-3.2.0/parameters.json)"
+        docker run -it -v testimage/:/data/ "wsclean-3.2.0" "$(cat pipeline/cleaning/wsclean-3.2.0/parameters.json)"
