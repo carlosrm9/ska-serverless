@@ -11,7 +11,7 @@ jobs:
       run: |
         for file in $(find pipeline/calibration -name 'Dockerfile*'); do
           directory=$(dirname $file)
-         upperdir=$(dirname $directory)
+          upperdir=$(dirname $directory)
           image_name=$(basename $upperdir)-$(basename $directory)
           docker build -t "$image_name" $directory
         done
