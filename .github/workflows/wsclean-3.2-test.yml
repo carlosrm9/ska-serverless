@@ -1,0 +1,24 @@
+name : wsclean-3.2-test
+
+on:
+  push:
+    paths:
+      - pipeline/cleaning/wsclean-3.2.0/**
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build wsclean-3.2 Images
+      run: |
+        docker build -t "wsclean-3.2.0" pipeline/cleaning/wsclean-3.2.0/Dockerfile
+    - name: Download and prepare test data
+      run: |
+        wget http://casa.nrao.edu/Data/EVLA/SNRG55/SNR_G55_10s.calib.tar.gz
+        tar -xvf SNR_G55_10s.calib.tar.gz
+        mkdir /data/
+        mv  SNR_G55_10s.calib.ms /data/ 
+    - name: Run wsclean-3.2
+      run: |
+        docker run -it -v /data/:/data/ "wsclean-3.2.0" "$(cat pipeline/cleaning/wsclean-3.2.0/parameters.json)"
