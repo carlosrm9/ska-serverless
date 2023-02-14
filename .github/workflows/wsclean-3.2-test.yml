@@ -16,10 +16,9 @@ jobs:
         tar -xvf SNR_G55_10s.calib.tar.gz
         mkdir testimage/
         mv  SNR_G55_10s.calib.ms testimage/
-        datadir=$(dirname SNR_G55_10s.calib.ms) 
     - name: Build wsclean-3.2 Image
       run: |
         docker build -t "wsclean-3.2.0" pipeline/cleaning/wsclean-3.2.0/
     - name: Run wsclean-3.2
       run: |
-        docker run -v "$datadir":/data/ "wsclean-3.2.0" "$(cat pipeline/cleaning/wsclean-3.2.0/parameters.json)"
+        docker run -v "$(pwd)/testimage:/data" "wsclean-3.2.0" "$(cat pipeline/cleaning/wsclean-3.2.0/parameters.json)"
