@@ -16,7 +16,7 @@ jobs:
         tar -xvf SNR_G55_10s.calib.tar.gz
         mkdir testimage/
         mv  SNR_G55_10s.calib.ms testimage/
-        datadir=$(dirname SNR_G5510s.calib.ms) 
+        datadir=$(dirname SNR_G55_10s.calib.ms) 
     - name: Build wsclean-3.2 Image
       run: |
         docker build -t "wsclean-3.2.0" pipeline/cleaning/wsclean-3.2.0/
