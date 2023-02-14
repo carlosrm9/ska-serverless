@@ -1,0 +1,13 @@
+{"MSName" : "/data/proxima_20210321_split.ms",
+ "SolverType" : "CohJones", 
+ "PolMode" : "Scalar", 
+ "OutSolsName" : "testcohjones",
+ "InCol" : "DATA",
+ "OutCol" : "CORRDATA",
+ "SkyModelCol" : "PREDICT_DDF",
+ "dt" : 5,
+ "NChanSols" : 1,
+ "MaxFacetSize" : 0.5,
+ "MinFacetSize" : 0.1,
+ "ApplyToDir" : 0
+}
