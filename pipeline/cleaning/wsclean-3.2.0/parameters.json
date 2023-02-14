@@ -1,7 +1,6 @@
-{"auto-threshold": 3,
- "size" : [1280,1280],
+{"size" : [1280,1280],
  "scale": "8asec",
  "mgain": 0.8,
- "niter": 1000,
- "ms" : "/data/SNR_G55_10s.calib.ms"
+ "niter": 10000,
+ "MS-Name" : "/data/SNR_G55_10s.calib.ms"
 }
