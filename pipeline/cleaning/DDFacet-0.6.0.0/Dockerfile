@@ -1,8 +1,9 @@
-from stimela/ddfacet:1.7.0
+FROM stimela/ddfacet:1.7.0
 
-RUN mkdir /script/
-RUN mkdir /data/
+RUN mkdir /script
+COPY script.py /script/
 
-WORKDIR /data/
+RUN mkdir /data
+WORKDIR /data
 
-CMD ["DDF.py","--help"]
+ENTRYPOINT ["python3","/script/script.py"]
