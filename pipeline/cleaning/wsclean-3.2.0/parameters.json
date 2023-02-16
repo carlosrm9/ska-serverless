@@ -1,5 +1,5 @@
 {"size" : [1280,1280],
- "scale": "8asec",
+ "scale": "8arcsec",
  "mgain": 0.8,
  "niter": 10000,
  "MS-Name" : "/data/SNR_G55_10s.calib.ms"

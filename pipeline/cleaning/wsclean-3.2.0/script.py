@@ -8,7 +8,7 @@ params = json.loads(parameters)
 
 result = []
 for key, value in params.items():
-    if key == "ms":
+    if key == "MS-Name":
         continue
     if type(value) == list:
         result.append(f"-{key}")
@@ -17,4 +17,4 @@ for key, value in params.items():
     else:
         result.append(f"-{key} {value}")
 parameters_str=" ".join(result)
-subprocess.run(["wsclean"] + parameters_str.split() + [params["ms"]])
+subprocess.run(["wsclean"] + parameters_str.split() + [params["MS-Name"]])
