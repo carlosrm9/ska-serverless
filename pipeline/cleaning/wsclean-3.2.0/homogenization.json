@@ -1,0 +1,11 @@
+{
+    "Input-MS" : "MS-Name",
+    "Output-Name" : "name",
+    "Image-Size" : "size",
+    "Image-Scale" : "scale",
+    "PB-Limit" : "primary-beam-limit",
+    "niter" : "niter",
+    "gain" : "gain",
+    "update-model" : "update-model",
+    "reorder" : "reorder"
+}

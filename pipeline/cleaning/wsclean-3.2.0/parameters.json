@@ -1,6 +1,10 @@
-{"size" : [1280,1280],
- "scale": "8arcsec",
- "mgain": 0.8,
- "niter": 10000,
- "MS-Name" : "/data/SNR_G55_10s.calib.ms"
+{
+    "MS-Name" : "/data/SNR_G55_10s.calib.ms",
+    "name" : "/data/SNR",
+    "size" : [1280,1280],
+    "scale": "8arcsec",
+    "mgain": 0.8,
+    "niter": 10000,
+    "primary-beam-limit" : -0.01,
+    "update-model" : true
 }
