@@ -1,0 +1,11 @@
+{
+    "Input-MS" : "vis",
+    "Output-Name" : "imagename",
+    "Image-Size" : "imsize",
+    "Image-Scale" : "cell",
+    "PB-Limit" : "pblimit",
+    "niter" : "niter",
+    "gain" : "gain",
+    "update-model" : "savemodel",
+    "reorder" : null
+}

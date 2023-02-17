@@ -1,0 +1,10 @@
+{
+    "Input-MS" : "/data/SNR_G55_10s.calib.ms",
+    "Output-Name" : "/data/SNR",
+    "Image-Size" : [1280,1280],
+    "Image-Scale": "8arcsec",
+    "niter": 10000,
+    "PB-Limit" : 0,
+    "reorder" : true,
+    "update-model" : true
+}

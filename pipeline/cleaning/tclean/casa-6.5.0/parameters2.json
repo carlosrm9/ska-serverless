@@ -2,7 +2,7 @@
 "imagename" : "SNR_G55_10s.Reg.Clean.niter10K",
 "imsize" : [1280,1280], 
 "cell": "8arcsec", 
-"pblimit": -0.01, 
+"pblimit": 0, 
 "niter" : 10000,
 "savemodel" : "modelcolumn"
 }
