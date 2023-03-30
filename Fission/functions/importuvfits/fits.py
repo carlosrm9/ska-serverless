@@ -3,6 +3,7 @@ import requests
 import os
 import json
 import casatasks as ct
+import subprocess
 
 SERVER_URL = 'http://192.168.100.70:10000'
 UPLOAD_ENDPOINT = '/upload'
@@ -32,9 +33,8 @@ def main():
     response = download_file('NGC5921.fits', '/tmp/')
     inpath = '/tmp/' + input
     outpath = '/tmp/' + output
-#    ct.importuvfits = (fitsfile = inpath, vis = outpath)
-    dir_list = os.listdir('/tmp/')
-    dir_string = '\n'.join(dir_list)
-    return dir_string + '\n'
-   # response2 = upload_file(outpath)
-   # return 'Done' + "\n " + response + "\n"
+    fitsdata='/tmp/NGC5921.fits'
+    ct.importuvfits(fitsfile = inpath, vis = outpath)
+    subprocess.run(["tar", "-czf", outpath + ".tar.gz", outpath])
+    response2 = upload_file(outpath + ".tar.gz")
+    return 'Done'
