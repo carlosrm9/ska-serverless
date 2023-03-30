@@ -55,6 +55,7 @@ RUN \
   make install && \
   wsclean --version
 
+RUN apt-get install -y python3-pip
 WORKDIR /app
 
 COPY requirements.txt /app
