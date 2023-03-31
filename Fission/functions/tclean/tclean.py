@@ -43,6 +43,11 @@ def main():
     outpath = '/tmp/' + output
     ct.tclean(vis = inpath, imagename= outpath, **param)
     # Retrieve the result of tclean out of the cluster
-    # subprocess.run(["tar", "-czf", outpath + ".tar.gz", outpath])
-    # response2 = upload_file(outpath + ".tar.gz")
-    return 'Done!'
+    for file in os.listdir('/tmp/'):
+        if file.startswith(output):
+            if not os.path.isdir(file):
+                upload_file('/tmp/' + file)
+            else:
+                subprocess.run(["tar","cf", "/tmp/"+ file + ".tar.gz", "/tmp/" + file])
+                upload_file("/tmp/"+ file + ".tar.gz")
+    return 'Done!\n'
