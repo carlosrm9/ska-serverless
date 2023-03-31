@@ -1,0 +1,9 @@
+{
+    "Input-MS" : "SNR_G55_10s.calib",
+    "size" : [1280,1280],
+    "scale": "8arcsec",
+    "mgain": 0.8,
+    "niter": 10000,
+    "primary-beam-limit" : 0.01,
+    "update-model" : true
+}
