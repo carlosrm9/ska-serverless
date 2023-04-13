@@ -1,35 +1,35 @@
 include:
-- hello/*
+- tclean/*
 kind: ArchiveUploadSpec
-name: hello-5xAw
+name: tclean-bVAW
 
 ---
 apiVersion: fission.io/v1
 kind: Package
 metadata:
   creationTimestamp: null
-  name: test-5ddaa581-9b7d-4719-8f2c-3341f3d1d86a
+  name: tclean-f2df382d-3213-4d41-af90-b27b4031412c
   namespace: default
 spec:
   deployment:
     checksum: {}
   environment:
-    name: python2
+    name: casapython
     namespace: default
   source:
     checksum: {}
     type: url
-    url: archive://hello-5xAw
+    url: archive://tclean-bVAW
 status:
   buildstatus: pending
-  lastUpdateTimestamp: "2023-04-12T09:26:40Z"
+  lastUpdateTimestamp: "2023-04-13T14:48:04Z"
 
 ---
 apiVersion: fission.io/v1
 kind: Function
 metadata:
   creationTimestamp: null
-  name: test
+  name: tclean
   namespace: default
 spec:
   InvokeStrategy:
@@ -42,14 +42,14 @@ spec:
     StrategyType: execution
   concurrency: 500
   environment:
-    name: python2
+    name: casapython
     namespace: default
   functionTimeout: 60
   idletimeout: 120
   package:
-    functionName: hello.main
+    functionName: tclean.main
     packageref:
-      name: test-5ddaa581-9b7d-4719-8f2c-3341f3d1d86a
+      name: tclean-f2df382d-3213-4d41-af90-b27b4031412c
       namespace: default
   requestsPerPod: 1
   resources: {}

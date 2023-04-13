@@ -2,22 +2,22 @@ apiVersion: fission.io/v1
 kind: HTTPTrigger
 metadata:
   creationTimestamp: null
-  name: 468d424d-d498-42f8-9b8c-66dd336be46c
+  name: 7771036b-34a7-42e0-a0b5-5abf3050ce06
   namespace: default
 spec:
   createingress: false
   functionref:
     functionweights: null
-    name: test
+    name: tclean
     type: name
   host: ""
   ingressconfig:
     annotations: null
     host: '*'
-    path: /test
+    path: /tclean
     tls: ""
   method: ""
   methods:
-  - GET
+  - POST
   prefix: ""
-  relativeurl: /test
+  relativeurl: /tclean
