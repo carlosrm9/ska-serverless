@@ -1,4 +1,4 @@
-{"Input-MS" : "SNR_G55_10s.calib",
+{"Input-MS" : "SNR_G55_10s.calib.ms",
  "Output-MS" : "SNR_G55_10s.calib.tclean",
  "imsize" : [1280,1280],
  "cell" : ["8.0arcsec","8.0arcsec"],
