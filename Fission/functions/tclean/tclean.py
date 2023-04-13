@@ -10,9 +10,9 @@ def main():
     param = request.get_json()
     input = param["Input-MS"]
     output = param["Output-MS"]
-    del param["Input-MS"] 
+    del param["Input-MS"]
     del param["Output-MS"]
-    inpath = '/mnt/' + input
-    outpath = '/mnt/' + output
+    inpath = '/app/data/' + input
+    outpath = '/app/data/' + output
     ct.tclean(vis = inpath, imagename= outpath, **param)
     return 'Done! Check /mnt/data for Output\n'
