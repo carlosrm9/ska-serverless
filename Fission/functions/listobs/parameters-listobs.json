@@ -1,0 +1,5 @@
+{"Input-MS" : "ngc5921.demo.ms",
+ "Output-MS" :"listobs.txt",
+ "verbose" : false,
+ "overwrite": true
+}

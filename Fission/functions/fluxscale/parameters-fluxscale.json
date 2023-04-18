@@ -1,0 +1,6 @@
+{"Input-MS" : "ngc5921.demo.ms",
+ "Output-Fluxscale" : "ngc5921.demo.fluxscale",
+ "caltable" : "ngc5921.demo.gcal",
+ "reference" : "1331*",
+ "transfer" : "1445*"
+}

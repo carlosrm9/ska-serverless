@@ -1,0 +1,9 @@
+{"Input-MS" : "ngc5921.demo.ms",
+ "Output-Cal" : "ngc5921.demo.bcal",
+ "field" : "0",
+ "selectdata" : false,
+ "bandtype" : "B",
+ "solint" : "inf",
+ "combine" : "scan",
+ "refant" : "15"
+}
