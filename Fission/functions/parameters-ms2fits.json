@@ -1,0 +1,4 @@
+{"Input-MS": "ngc5921.demo.tclean.image"  ,
+ "Output-MS": "ngc5921.clean.fits",
+ "overwrite": true
+}

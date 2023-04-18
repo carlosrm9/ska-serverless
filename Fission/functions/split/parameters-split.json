@@ -1,0 +1,6 @@
+{"Input-MS" : "ngc5921.demo.ms",
+ "Output-MS" : "ngc5921.demo.src.split.ms",
+ "field" : "N5921*",
+ "spw" : "",
+ "datacolumn" : "corrected"
+}
