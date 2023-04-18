@@ -26,5 +26,6 @@ Werkzeug==2.0.2
 zipp==3.8.0
 zope.event==4.5.0
 zope.interface==5.4.0
-casatasks
+casatools==6.5.0.15
+casatasks==6.5.0.15
 casadata
