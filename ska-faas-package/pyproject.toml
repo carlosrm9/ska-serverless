@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+[project]
+name = "ska_serverless"
+version = "0.3.5"
+authors = [
+  { name="Carlos RM", email="riosmonjecarlos@gmail.com" },
+]
+description = "Package in construction"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/carlosriosm/ska-severless"
+"Bug Tracker" = "https://github.com/carlosriosm/ska-severless"

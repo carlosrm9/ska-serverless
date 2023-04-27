@@ -1,0 +1,55 @@
+include:
+- uvcontsub/*
+kind: ArchiveUploadSpec
+name: uvcontsub-HgQq
+
+---
+apiVersion: fission.io/v1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: uvcontsub-4363f0b3-b54a-4631-aebb-ade74c2b763f
+  namespace: default
+spec:
+  deployment:
+    checksum: {}
+  environment:
+    name: casapython
+    namespace: default
+  source:
+    checksum: {}
+    type: url
+    url: archive://uvcontsub-HgQq
+status:
+  buildstatus: pending
+  lastUpdateTimestamp: "2023-04-27T19:39:48Z"
+
+---
+apiVersion: fission.io/v1
+kind: Function
+metadata:
+  creationTimestamp: null
+  name: uvcontsub
+  namespace: default
+spec:
+  InvokeStrategy:
+    ExecutionStrategy:
+      ExecutorType: poolmgr
+      MaxScale: 0
+      MinScale: 0
+      SpecializationTimeout: 120
+      TargetCPUPercent: 0
+    StrategyType: execution
+  concurrency: 500
+  environment:
+    name: casapython
+    namespace: default
+  functionTimeout: 60
+  idletimeout: 120
+  package:
+    functionName: uvcontsub.main
+    packageref:
+      name: uvcontsub-4363f0b3-b54a-4631-aebb-ade74c2b763f
+      namespace: default
+  requestsPerPod: 1
+  resources: {}
