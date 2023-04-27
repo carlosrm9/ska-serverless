@@ -1,0 +1,55 @@
+include:
+- uvsubcont/*
+kind: ArchiveUploadSpec
+name: uvsubcont-8hAL
+
+---
+apiVersion: fission.io/v1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: uvsubcont-b5d2a8ec-0ca9-4961-aee7-7e5f3cd5ae7a
+  namespace: default
+spec:
+  deployment:
+    checksum: {}
+  environment:
+    name: casapython
+    namespace: default
+  source:
+    checksum: {}
+    type: url
+    url: archive://uvsubcont-8hAL
+status:
+  buildstatus: pending
+  lastUpdateTimestamp: "2023-04-27T19:03:02Z"
+
+---
+apiVersion: fission.io/v1
+kind: Function
+metadata:
+  creationTimestamp: null
+  name: uvsubcont
+  namespace: default
+spec:
+  InvokeStrategy:
+    ExecutionStrategy:
+      ExecutorType: poolmgr
+      MaxScale: 0
+      MinScale: 0
+      SpecializationTimeout: 120
+      TargetCPUPercent: 0
+    StrategyType: execution
+  concurrency: 500
+  environment:
+    name: casapython
+    namespace: default
+  functionTimeout: 60
+  idletimeout: 120
+  package:
+    functionName: uvsubcont.main
+    packageref:
+      name: uvsubcont-b5d2a8ec-0ca9-4961-aee7-7e5f3cd5ae7a
+      namespace: default
+  requestsPerPod: 1
+  resources: {}

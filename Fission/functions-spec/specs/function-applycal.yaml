@@ -1,0 +1,55 @@
+include:
+- applycal/*
+kind: ArchiveUploadSpec
+name: applycal-ZEiZ
+
+---
+apiVersion: fission.io/v1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: applycal-8e8757f6-40ab-4c4f-8257-6e66c099a97c
+  namespace: default
+spec:
+  deployment:
+    checksum: {}
+  environment:
+    name: casapython
+    namespace: default
+  source:
+    checksum: {}
+    type: url
+    url: archive://applycal-ZEiZ
+status:
+  buildstatus: pending
+  lastUpdateTimestamp: "2023-04-27T19:02:07Z"
+
+---
+apiVersion: fission.io/v1
+kind: Function
+metadata:
+  creationTimestamp: null
+  name: applycal
+  namespace: default
+spec:
+  InvokeStrategy:
+    ExecutionStrategy:
+      ExecutorType: poolmgr
+      MaxScale: 0
+      MinScale: 0
+      SpecializationTimeout: 120
+      TargetCPUPercent: 0
+    StrategyType: execution
+  concurrency: 500
+  environment:
+    name: casapython
+    namespace: default
+  functionTimeout: 60
+  idletimeout: 120
+  package:
+    functionName: applycal.main
+    packageref:
+      name: applycal-8e8757f6-40ab-4c4f-8257-6e66c099a97c
+      namespace: default
+  requestsPerPod: 1
+  resources: {}

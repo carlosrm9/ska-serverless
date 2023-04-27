@@ -1,0 +1,55 @@
+include:
+- setjy/*
+kind: ArchiveUploadSpec
+name: setjy-xCqa
+
+---
+apiVersion: fission.io/v1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: setjy-05f4d30b-cbeb-45da-bf0f-74afe04e4b74
+  namespace: default
+spec:
+  deployment:
+    checksum: {}
+  environment:
+    name: casapython
+    namespace: default
+  source:
+    checksum: {}
+    type: url
+    url: archive://setjy-xCqa
+status:
+  buildstatus: pending
+  lastUpdateTimestamp: "2023-04-27T16:20:51Z"
+
+---
+apiVersion: fission.io/v1
+kind: Function
+metadata:
+  creationTimestamp: null
+  name: setjy
+  namespace: default
+spec:
+  InvokeStrategy:
+    ExecutionStrategy:
+      ExecutorType: poolmgr
+      MaxScale: 0
+      MinScale: 0
+      SpecializationTimeout: 120
+      TargetCPUPercent: 0
+    StrategyType: execution
+  concurrency: 500
+  environment:
+    name: casapython
+    namespace: default
+  functionTimeout: 60
+  idletimeout: 120
+  package:
+    functionName: setjy.main
+    packageref:
+      name: setjy-05f4d30b-cbeb-45da-bf0f-74afe04e4b74
+      namespace: default
+  requestsPerPod: 1
+  resources: {}

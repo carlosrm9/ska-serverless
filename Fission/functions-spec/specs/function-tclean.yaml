@@ -1,0 +1,55 @@
+include:
+- tclean/*
+kind: ArchiveUploadSpec
+name: tclean-85pl
+
+---
+apiVersion: fission.io/v1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: tclean-11c1cdd7-06d7-4e95-8ce0-3a1dcdc57f88
+  namespace: default
+spec:
+  deployment:
+    checksum: {}
+  environment:
+    name: casapython
+    namespace: default
+  source:
+    checksum: {}
+    type: url
+    url: archive://tclean-85pl
+status:
+  buildstatus: pending
+  lastUpdateTimestamp: "2023-04-27T19:03:22Z"
+
+---
+apiVersion: fission.io/v1
+kind: Function
+metadata:
+  creationTimestamp: null
+  name: tclean
+  namespace: default
+spec:
+  InvokeStrategy:
+    ExecutionStrategy:
+      ExecutorType: poolmgr
+      MaxScale: 0
+      MinScale: 0
+      SpecializationTimeout: 120
+      TargetCPUPercent: 0
+    StrategyType: execution
+  concurrency: 500
+  environment:
+    name: casapython
+    namespace: default
+  functionTimeout: 60
+  idletimeout: 120
+  package:
+    functionName: tclean.main
+    packageref:
+      name: tclean-11c1cdd7-06d7-4e95-8ce0-3a1dcdc57f88
+      namespace: default
+  requestsPerPod: 1
+  resources: {}

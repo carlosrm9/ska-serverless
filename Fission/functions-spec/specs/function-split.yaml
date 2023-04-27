@@ -1,0 +1,55 @@
+include:
+- split/*
+kind: ArchiveUploadSpec
+name: split-LycA
+
+---
+apiVersion: fission.io/v1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: split-de8ea117-8a11-459a-b557-df0ebe4eaf76
+  namespace: default
+spec:
+  deployment:
+    checksum: {}
+  environment:
+    name: casapython
+    namespace: default
+  source:
+    checksum: {}
+    type: url
+    url: archive://split-LycA
+status:
+  buildstatus: pending
+  lastUpdateTimestamp: "2023-04-27T19:02:38Z"
+
+---
+apiVersion: fission.io/v1
+kind: Function
+metadata:
+  creationTimestamp: null
+  name: split
+  namespace: default
+spec:
+  InvokeStrategy:
+    ExecutionStrategy:
+      ExecutorType: poolmgr
+      MaxScale: 0
+      MinScale: 0
+      SpecializationTimeout: 120
+      TargetCPUPercent: 0
+    StrategyType: execution
+  concurrency: 500
+  environment:
+    name: casapython
+    namespace: default
+  functionTimeout: 60
+  idletimeout: 120
+  package:
+    functionName: split.main
+    packageref:
+      name: split-de8ea117-8a11-459a-b557-df0ebe4eaf76
+      namespace: default
+  requestsPerPod: 1
+  resources: {}

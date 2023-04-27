@@ -1,0 +1,26 @@
+apiVersion: fission.io/v1
+kind: Environment
+metadata:
+  name: aoflagger
+  namespace: default
+spec:
+  builder:
+    command: build
+    image: fission/python-builder
+  imagepullsecret: ""
+  keeparchive: false
+  poolsize: 3
+  resources: {}
+  runtime:
+    image: carlosriosm/aoflagger
+    podspec:
+      containers:
+      - name: aoflagger
+        volumeMounts:
+        - name: pv-storage
+          mountPath: /app/data
+      volumes:
+      - name: pv-storage
+        persistentVolumeClaim:
+          claimName: pv-claim  
+  version: 1
