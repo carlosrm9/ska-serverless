@@ -1,7 +1,8 @@
 from flask import request
 import requests
-import subprocess
+import os
 import json
+import subprocess
 
 def main():
     param = request.get_json()
@@ -28,5 +29,5 @@ def main():
         else:
             result.append(f"-{key} {value}")
     parameters_str=" ".join(result)
-    subprocess.run(["wsclean"] + parameters_str.split() + [inpath])
-    return 'wsclean done\n!'
+    subprocess.run(["aoflagger"] + parameters_str.split() + [inpath])
+    return 'Done!\n'

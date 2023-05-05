@@ -1,14 +1,14 @@
 include:
-- bandpasscal/*
+- setjy/*
 kind: ArchiveUploadSpec
-name: bandpasscal-OyHb
+name: setjy-65WM
 
 ---
 apiVersion: fission.io/v1
 kind: Package
 metadata:
   creationTimestamp: null
-  name: bandpasscal-3903c089-377f-4a36-8f32-a25e4cc7f311
+  name: setjy-9cb6a077-f9ba-489d-9ae5-4ebb85fe7d0e
   namespace: default
 spec:
   deployment:
@@ -19,17 +19,17 @@ spec:
   source:
     checksum: {}
     type: url
-    url: archive://bandpasscal-OyHb
+    url: archive://setjy-65WM
 status:
   buildstatus: pending
-  lastUpdateTimestamp: "2023-04-27T17:31:36Z"
+  lastUpdateTimestamp: "2023-05-05T10:43:37Z"
 
 ---
 apiVersion: fission.io/v1
 kind: Function
 metadata:
   creationTimestamp: null
-  name: bandpasscal
+  name: setjy
   namespace: default
 spec:
   InvokeStrategy:
@@ -47,9 +47,9 @@ spec:
   functionTimeout: 60
   idletimeout: 120
   package:
-    functionName: bandpasscal.main
+    functionName: setjy.main
     packageref:
-      name: bandpasscal-3903c089-377f-4a36-8f32-a25e4cc7f311
+      name: setjy-9cb6a077-f9ba-489d-9ae5-4ebb85fe7d0e
       namespace: default
   requestsPerPod: 1
   resources: {}

@@ -1,5 +1,5 @@
 {
-    "Input-MS" : "SNR_G55_10s.calib.ms",
+    "Input-MS" : "ngc5921.demo.ms",
     "size" : [1280,1280],
     "scale": "8arcsec",
     "mgain": 0.8,

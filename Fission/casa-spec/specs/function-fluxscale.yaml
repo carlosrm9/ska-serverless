@@ -1,14 +1,14 @@
 include:
-- tclean/*
+- fluxscale/*
 kind: ArchiveUploadSpec
-name: tclean-85pl
+name: fluxscale-oUbC
 
 ---
 apiVersion: fission.io/v1
 kind: Package
 metadata:
   creationTimestamp: null
-  name: tclean-11c1cdd7-06d7-4e95-8ce0-3a1dcdc57f88
+  name: fluxscale-39133260-de23-403f-b4cf-81ebb7b0795f
   namespace: default
 spec:
   deployment:
@@ -19,17 +19,17 @@ spec:
   source:
     checksum: {}
     type: url
-    url: archive://tclean-85pl
+    url: archive://fluxscale-oUbC
 status:
   buildstatus: pending
-  lastUpdateTimestamp: "2023-04-27T19:03:22Z"
+  lastUpdateTimestamp: "2023-05-05T10:46:23Z"
 
 ---
 apiVersion: fission.io/v1
 kind: Function
 metadata:
   creationTimestamp: null
-  name: tclean
+  name: fluxscale
   namespace: default
 spec:
   InvokeStrategy:
@@ -47,9 +47,9 @@ spec:
   functionTimeout: 60
   idletimeout: 120
   package:
-    functionName: tclean.main
+    functionName: fluxscale.main
     packageref:
-      name: tclean-11c1cdd7-06d7-4e95-8ce0-3a1dcdc57f88
+      name: fluxscale-39133260-de23-403f-b4cf-81ebb7b0795f
       namespace: default
   requestsPerPod: 1
   resources: {}

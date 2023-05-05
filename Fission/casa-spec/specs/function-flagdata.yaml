@@ -1,0 +1,55 @@
+include:
+- flagdata/*
+kind: ArchiveUploadSpec
+name: flagdata-xPOO
+
+---
+apiVersion: fission.io/v1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: flagdata-bdf991c7-aec5-4232-bca6-057df605e3e0
+  namespace: default
+spec:
+  deployment:
+    checksum: {}
+  environment:
+    name: casapython
+    namespace: default
+  source:
+    checksum: {}
+    type: url
+    url: archive://flagdata-xPOO
+status:
+  buildstatus: pending
+  lastUpdateTimestamp: "2023-05-05T10:53:40Z"
+
+---
+apiVersion: fission.io/v1
+kind: Function
+metadata:
+  creationTimestamp: null
+  name: flagdata
+  namespace: default
+spec:
+  InvokeStrategy:
+    ExecutionStrategy:
+      ExecutorType: poolmgr
+      MaxScale: 0
+      MinScale: 0
+      SpecializationTimeout: 120
+      TargetCPUPercent: 0
+    StrategyType: execution
+  concurrency: 500
+  environment:
+    name: casapython
+    namespace: default
+  functionTimeout: 60
+  idletimeout: 120
+  package:
+    functionName: flagdata.main
+    packageref:
+      name: flagdata-bdf991c7-aec5-4232-bca6-057df605e3e0
+      namespace: default
+  requestsPerPod: 1
+  resources: {}

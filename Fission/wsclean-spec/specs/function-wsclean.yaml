@@ -1,35 +1,35 @@
 include:
-- listobs/*
+- wsclean/*
 kind: ArchiveUploadSpec
-name: listobs-mwN2
+name: wsclean-YjHl
 
 ---
 apiVersion: fission.io/v1
 kind: Package
 metadata:
   creationTimestamp: null
-  name: listobs-7e6e10ab-1cda-43d1-bcb9-a1a0b19578fd
+  name: wsclean-39fb9b1e-7d4f-43cf-b215-9935ea89a1c4
   namespace: default
 spec:
   deployment:
     checksum: {}
   environment:
-    name: casapython
+    name: wsclean-env
     namespace: default
   source:
     checksum: {}
     type: url
-    url: archive://listobs-mwN2
+    url: archive://wsclean-YjHl
 status:
   buildstatus: pending
-  lastUpdateTimestamp: "2023-04-25T09:26:52Z"
+  lastUpdateTimestamp: "2023-05-05T11:02:54Z"
 
 ---
 apiVersion: fission.io/v1
 kind: Function
 metadata:
   creationTimestamp: null
-  name: listobs
+  name: wsclean
   namespace: default
 spec:
   InvokeStrategy:
@@ -42,14 +42,14 @@ spec:
     StrategyType: execution
   concurrency: 500
   environment:
-    name: casapython
+    name: wsclean-env
     namespace: default
   functionTimeout: 60
   idletimeout: 120
   package:
-    functionName: listobs.main
+    functionName: wsclean.main
     packageref:
-      name: listobs-7e6e10ab-1cda-43d1-bcb9-a1a0b19578fd
+      name: wsclean-39fb9b1e-7d4f-43cf-b215-9935ea89a1c4
       namespace: default
   requestsPerPod: 1
   resources: {}

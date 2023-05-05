@@ -1,14 +1,14 @@
 include:
-- flagdata/*
+- fits2ms/*
 kind: ArchiveUploadSpec
-name: flagdata-n8Ct
+name: fits2ms-19wj
 
 ---
 apiVersion: fission.io/v1
 kind: Package
 metadata:
   creationTimestamp: null
-  name: flagdata-a0225a95-b509-4252-994a-da392fbc3ce5
+  name: fits2ms-4e22a21d-496e-4f1b-982b-2b369735e925
   namespace: default
 spec:
   deployment:
@@ -19,17 +19,17 @@ spec:
   source:
     checksum: {}
     type: url
-    url: archive://flagdata-n8Ct
+    url: archive://fits2ms-19wj
 status:
   buildstatus: pending
-  lastUpdateTimestamp: "2023-04-27T10:54:37Z"
+  lastUpdateTimestamp: "2023-05-05T10:26:39Z"
 
 ---
 apiVersion: fission.io/v1
 kind: Function
 metadata:
   creationTimestamp: null
-  name: flagdata
+  name: fits2ms
   namespace: default
 spec:
   InvokeStrategy:
@@ -47,9 +47,9 @@ spec:
   functionTimeout: 60
   idletimeout: 120
   package:
-    functionName: flagdata.main
+    functionName: fits2ms.main
     packageref:
-      name: flagdata-a0225a95-b509-4252-994a-da392fbc3ce5
+      name: fits2ms-4e22a21d-496e-4f1b-982b-2b369735e925
       namespace: default
   requestsPerPod: 1
   resources: {}

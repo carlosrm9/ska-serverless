@@ -15,4 +15,4 @@ def main():
     inpath = '/app/data/' + input
     outpath = '/app/data/' + output
     ct.tclean(vis = inpath, imagename= outpath, **param)
-    return 'Done!'
+    return 'Done!\n'

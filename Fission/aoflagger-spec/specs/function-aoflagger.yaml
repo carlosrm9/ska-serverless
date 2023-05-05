@@ -1,35 +1,35 @@
 include:
-- setjy/*
+- aoflagger/*
 kind: ArchiveUploadSpec
-name: setjy-xCqa
+name: aoflagger-Wb2I
 
 ---
 apiVersion: fission.io/v1
 kind: Package
 metadata:
   creationTimestamp: null
-  name: setjy-05f4d30b-cbeb-45da-bf0f-74afe04e4b74
+  name: aoflagger-7f16ae66-5fde-4d0a-98e1-2772f81a0ef1
   namespace: default
 spec:
   deployment:
     checksum: {}
   environment:
-    name: casapython
+    name: aoflagger-env
     namespace: default
   source:
     checksum: {}
     type: url
-    url: archive://setjy-xCqa
+    url: archive://aoflagger-Wb2I
 status:
   buildstatus: pending
-  lastUpdateTimestamp: "2023-04-27T16:20:51Z"
+  lastUpdateTimestamp: "2023-05-05T11:50:09Z"
 
 ---
 apiVersion: fission.io/v1
 kind: Function
 metadata:
   creationTimestamp: null
-  name: setjy
+  name: aoflagger
   namespace: default
 spec:
   InvokeStrategy:
@@ -42,14 +42,14 @@ spec:
     StrategyType: execution
   concurrency: 500
   environment:
-    name: casapython
+    name: aoflagger-env
     namespace: default
   functionTimeout: 60
   idletimeout: 120
   package:
-    functionName: setjy.main
+    functionName: aoflagger.main
     packageref:
-      name: setjy-05f4d30b-cbeb-45da-bf0f-74afe04e4b74
+      name: aoflagger-7f16ae66-5fde-4d0a-98e1-2772f81a0ef1
       namespace: default
   requestsPerPod: 1
   resources: {}

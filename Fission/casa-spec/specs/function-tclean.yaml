@@ -1,14 +1,14 @@
 include:
-- uvcontsub/*
+- tclean/*
 kind: ArchiveUploadSpec
-name: uvcontsub-HgQq
+name: tclean-hc1w
 
 ---
 apiVersion: fission.io/v1
 kind: Package
 metadata:
   creationTimestamp: null
-  name: uvcontsub-4363f0b3-b54a-4631-aebb-ade74c2b763f
+  name: tclean-0db7bd34-f050-4cf7-8459-3140e6989b65
   namespace: default
 spec:
   deployment:
@@ -19,17 +19,17 @@ spec:
   source:
     checksum: {}
     type: url
-    url: archive://uvcontsub-HgQq
+    url: archive://tclean-hc1w
 status:
   buildstatus: pending
-  lastUpdateTimestamp: "2023-04-27T19:39:48Z"
+  lastUpdateTimestamp: "2023-05-05T10:48:26Z"
 
 ---
 apiVersion: fission.io/v1
 kind: Function
 metadata:
   creationTimestamp: null
-  name: uvcontsub
+  name: tclean
   namespace: default
 spec:
   InvokeStrategy:
@@ -47,9 +47,9 @@ spec:
   functionTimeout: 60
   idletimeout: 120
   package:
-    functionName: uvcontsub.main
+    functionName: tclean.main
     packageref:
-      name: uvcontsub-4363f0b3-b54a-4631-aebb-ade74c2b763f
+      name: tclean-0db7bd34-f050-4cf7-8459-3140e6989b65
       namespace: default
   requestsPerPod: 1
   resources: {}

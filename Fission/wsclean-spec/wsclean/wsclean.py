@@ -1,16 +1,13 @@
 from flask import request
 import requests
 import os
-import json
 import subprocess
+import json
 
 def main():
-    # Get tclean parameters as the json body of a POST request:
     param = request.get_json()
-    # Define input file and outfile names:
     input = param["Input-MS"]
     del param["Input-MS"]
-    # Download the input file to the cluster where Fission is running:
     inpath = '/app/data/' + input
     result = []
     for key, value in param.items():
@@ -32,6 +29,8 @@ def main():
         else:
             result.append(f"-{key} {value}")
     parameters_str=" ".join(result)
-    subprocess.run(["aoflagger"] + parameters_str.split() + [inpath])
-    # Retrieve the result of wsclean out of the cluster
-    return 'Done!\n'
+    subprocess.run(["wsclean"] + parameters_str.split() + [inpath])
+    fits_files = [f for f in os.listdir('/app') if f.endswith('.fits')]
+    for fits_file in fits_files:
+        subprocess.run(['mv', '/app/' + fits_file, '/app/data/'])
+    return 'wsclean done\n!'

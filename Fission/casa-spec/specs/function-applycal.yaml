@@ -1,14 +1,14 @@
 include:
-- uvsubcont/*
+- applycal/*
 kind: ArchiveUploadSpec
-name: uvsubcont-8hAL
+name: applycal-F4Ic
 
 ---
 apiVersion: fission.io/v1
 kind: Package
 metadata:
   creationTimestamp: null
-  name: uvsubcont-b5d2a8ec-0ca9-4961-aee7-7e5f3cd5ae7a
+  name: applycal-9428e101-f5c6-4035-8bb5-7df86df15e74
   namespace: default
 spec:
   deployment:
@@ -19,17 +19,17 @@ spec:
   source:
     checksum: {}
     type: url
-    url: archive://uvsubcont-8hAL
+    url: archive://applycal-F4Ic
 status:
   buildstatus: pending
-  lastUpdateTimestamp: "2023-04-27T19:03:02Z"
+  lastUpdateTimestamp: "2023-05-05T10:46:02Z"
 
 ---
 apiVersion: fission.io/v1
 kind: Function
 metadata:
   creationTimestamp: null
-  name: uvsubcont
+  name: applycal
   namespace: default
 spec:
   InvokeStrategy:
@@ -47,9 +47,9 @@ spec:
   functionTimeout: 60
   idletimeout: 120
   package:
-    functionName: uvsubcont.main
+    functionName: applycal.main
     packageref:
-      name: uvsubcont-b5d2a8ec-0ca9-4961-aee7-7e5f3cd5ae7a
+      name: applycal-9428e101-f5c6-4035-8bb5-7df86df15e74
       namespace: default
   requestsPerPod: 1
   resources: {}

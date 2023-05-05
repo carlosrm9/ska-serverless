@@ -1,14 +1,14 @@
 include:
-- fluxscale/*
+- listobs/*
 kind: ArchiveUploadSpec
-name: fluxscale-7AL2
+name: listobs-Reet
 
 ---
 apiVersion: fission.io/v1
 kind: Package
 metadata:
   creationTimestamp: null
-  name: fluxscale-c1b03414-eefc-42ae-9771-d01dcdfe2122
+  name: listobs-203511f8-d578-4496-9b58-20130691ea05
   namespace: default
 spec:
   deployment:
@@ -19,17 +19,17 @@ spec:
   source:
     checksum: {}
     type: url
-    url: archive://fluxscale-7AL2
+    url: archive://listobs-Reet
 status:
   buildstatus: pending
-  lastUpdateTimestamp: "2023-04-27T19:18:28Z"
+  lastUpdateTimestamp: "2023-05-05T10:38:48Z"
 
 ---
 apiVersion: fission.io/v1
 kind: Function
 metadata:
   creationTimestamp: null
-  name: fluxscale
+  name: listobs
   namespace: default
 spec:
   InvokeStrategy:
@@ -47,9 +47,9 @@ spec:
   functionTimeout: 60
   idletimeout: 120
   package:
-    functionName: fluxscale.main
+    functionName: listobs.main
     packageref:
-      name: fluxscale-c1b03414-eefc-42ae-9771-d01dcdfe2122
+      name: listobs-203511f8-d578-4496-9b58-20130691ea05
       namespace: default
   requestsPerPod: 1
   resources: {}
