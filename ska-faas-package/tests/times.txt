@@ -1,0 +1,2 @@
+251.85542236780748 (10 veces fission + print) -> 25.185542236780748 (1 vez fission + print)
+238.8971735232044 (10 veces local + print) -> 23.88971735232044 (1 vez local + print)
