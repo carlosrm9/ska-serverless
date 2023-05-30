@@ -16,3 +16,28 @@ We also want to have a common storage between all the nodes of the cluster, so a
 kubectl apply -f pv.yaml
 kubectl apply -f pvc.yaml
 ```
+
+## Fission
+To install Fission follow the intructions at https://fission.io/docs/installation/. It has been tested to work fine with Helm installation.
+
+## Environment and Functions creation
+To install CASA functions, inside `ska-severless/Fission/casa-spec` run
+```
+fission spec apply --wait
+```
+This will trigger the package creation to build the environment and the different CASA functions along with its route to be run.
+To install wsclean, `ska-severless/Fission/wsclean-spec` run
+```
+fission spec apply --wait
+```
+
+## Function usage
+If you followed all the previous steps, now you can run any of the installed functions. All the files needed for the function to work must be at `/mnt/data` and there will be the output after running them. To run a function, first we need to set up a environment variable:
+```
+export FISSION_ROUTER=$(sudo kubectl get nodes -o jsonpath='{ $.items[0].status.addresses[?(@.type=="InternalIP")].address }'):$(sudo kubectl -n fission get svc router -o jsonpath='{ ...nodePort }')
+```
+Then, to run the function just run: 
+```
+curl -X POST -d "$(cat parameters-<function>.json)" -H "Content-Type: application/json" "http://${FISSION_ROUTER}/<function>"
+```
+where `<function>` is the name of the function to be run and parameters-<function>.json its parameters in a json file. Examples of parameters-<function>.json can be found at `ska-serverless/Fission/functions`.
